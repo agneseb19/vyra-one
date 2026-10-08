@@ -289,6 +289,25 @@ controls.dampingFactor = 0.05;
 
 controls.enablePan = false;
 
+/* ========================================
+   CONTROLLI TOUCH MOBILE
+======================================== */
+
+const isTouchMobile = window.matchMedia(
+    "(max-width: 767px) and (pointer: coarse)"
+).matches;
+
+if (isTouchMobile) {
+
+    // Un dito: lasciamo scorrere la pagina.
+    // Due dita: rotazione del modello 3D.
+
+    controls.touches.ONE = null;
+
+    controls.touches.TWO = THREE.TOUCH.ROTATE;
+
+}
+
 controls.minDistance = 5;
 controls.maxDistance = 15;
 

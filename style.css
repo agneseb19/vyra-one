@@ -1682,6 +1682,10 @@ body {
     }
 
     #scene canvas {
+    touch-action: pan-y;
+}
+
+    #scene canvas {
         display: block;
 
         width: 100% !important;
