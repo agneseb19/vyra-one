@@ -4701,7 +4701,11 @@ function setupVYRAReveal() {
 
         );
 
-        camera.lookAt(0, 0.95, 0);
+        camera.lookAt(
+    0,
+    isMobile ? -0.7 : 0.95,
+    0
+);
 
     }
 

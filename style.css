@@ -2598,3 +2598,133 @@ body {
     }
 
 }
+
+/* ==========================================
+   VYRA — REVEAL MOBILE TEXT LAYOUT
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+    /* CONTENITORE DELLE FRASI */
+
+    .vyra-reveal-content {
+        position: absolute;
+
+        top: auto;
+        bottom: 17svh;
+
+        left: 6%;
+        right: 6%;
+
+        width: 88%;
+        height: 195px;
+
+        z-index: 5;
+
+        pointer-events: none;
+    }
+
+    /* ETICHETTA SUPERIORE */
+
+    .vyra-reveal-eyebrow {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        margin: 0;
+
+        font-size: 9px;
+        line-height: 1.5;
+        letter-spacing: 1.2px;
+    }
+
+    /* TITOLI ANIMATI */
+
+    .vyra-reveal-title {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+
+        font-size: clamp(24px, 6.5vw, 34px);
+        line-height: 1.2;
+        letter-spacing: -1px;
+
+        font-weight: 800;
+
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .vyra-reveal-title span {
+        display: inline;
+
+        -webkit-text-stroke: 0.8px rgba(
+            255, 255, 255, 0.85
+        );
+    }
+
+    /* INFORMAZIONI SULLA CONFIGURAZIONE */
+
+    .vyra-reveal-bottom {
+        position: absolute;
+
+        top: auto;
+        bottom: max(12px, env(safe-area-inset-bottom));
+
+        left: 6%;
+        right: 6%;
+
+        width: 88%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+
+        z-index: 6;
+    }
+
+    .vyra-reveal-bottom small {
+        font-size: 9px;
+        letter-spacing: 1.3px;
+    }
+
+    .vyra-reveal-bottom p {
+        margin-top: 5px;
+
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .vyra-reveal-return {
+        padding: 10px 13px;
+
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+}
+
+/* SCHERMI PARTICOLARMENTE PICCOLI */
+
+@media screen and (max-width: 767px) and (max-height: 700px) {
+
+    .vyra-reveal-content {
+        bottom: 19svh;
+        height: 150px;
+    }
+
+    .vyra-reveal-title {
+        font-size: clamp(21px, 6vw, 28px);
+    }
+
+}
