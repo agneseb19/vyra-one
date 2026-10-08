@@ -28,8 +28,16 @@ scene.background = new THREE.Color('#0b101a');
 // 2. TELECAMERA
 // ========================================
 
+/* ========================================
+   CAMERA RESPONSIVE
+======================================== */
+
+const isMobile = window.matchMedia(
+    "(max-width: 767px)"
+).matches;
+
 const camera = new THREE.PerspectiveCamera(
-    40,
+    isMobile ? 68 : 40,
     container.clientWidth / container.clientHeight,
     0.1,
     100
@@ -763,24 +771,39 @@ renderer.setAnimationLoop(animate);
 
 
 // ========================================
-// 12. RIDIMENSIONAMENTO
+// 12. RIDIMENSIONAMENTO RESPONSIVE
 // ========================================
 
 window.addEventListener('resize', function () {
 
     const width = revealActive
-    ? window.innerWidth
-    : container.clientWidth;
+        ? window.innerWidth
+        : container.clientWidth;
 
-const height = revealActive
-    ? window.innerHeight
-    : container.clientHeight;
+    const height = revealActive
+        ? window.innerHeight
+        : container.clientHeight;
 
-    camera.aspect = width / height;
+    // Inquadratura diversa per smartphone e desktop
+
+    const mobile = window.matchMedia(
+        "(max-width: 767px)"
+    ).matches;
+
+    camera.fov = mobile ? 68 : 40;
+
+    camera.aspect = width / Math.max(height, 1);
 
     camera.updateProjectionMatrix();
 
     renderer.setSize(width, height);
+
+    // Ricalcoliamo le posizioni delle animazioni
+    // quando cambiano le dimensioni dello schermo.
+
+    if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.refresh();
+    }
 
 });
 
