@@ -2497,3 +2497,104 @@ body {
     }
 
 }
+
+/* ==========================================
+   VYRA — CONFIGURATORE MOBILE DEFINITIVO
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+    .configurator-panel {
+        width: 100%;
+        height: 100svh;
+
+        padding: 0 12px 12px;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        pointer-events: none;
+    }
+
+    .configurator-card {
+        position: relative;
+
+        width: 100%;
+        max-width: none;
+
+        height: 48svh;
+        max-height: 48svh;
+
+        padding: 23px 20px 35px;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+
+        border-radius: 22px;
+
+        background: rgba(9, 16, 29, 0.97);
+
+        border: 1px solid rgba(255,255,255,0.18);
+
+        pointer-events: auto;
+
+        z-index: 20;
+    }
+
+    .configurator-card h2 {
+        font-size: clamp(31px, 8vw, 38px);
+        line-height: 1.06;
+    }
+
+    .config-description {
+        font-size: 13px;
+        line-height: 1.7;
+
+        margin-bottom: 20px;
+    }
+
+    .config-group {
+        padding: 20px 0;
+    }
+
+    .config-label {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .config-swatches {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .config-swatch {
+        width: 42px;
+        height: 42px;
+    }
+
+    .config-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .config-option,
+    .config-switch {
+        min-height: 46px;
+        padding: 12px 15px;
+
+        touch-action: manipulation;
+    }
+
+    /* INQUADRATURA PIÙ ALTA NEL CONFIGURATORE */
+
+    body.vyra-mobile-configuring #scene canvas {
+        transform: translateY(-13svh);
+    }
+
+}
