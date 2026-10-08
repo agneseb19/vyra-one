@@ -2139,7 +2139,7 @@ body {
         max-width: none;
 
         height: auto;
-        max-height: 52svh;
+        max-height: 35svh;
 
         padding: 24px 20px;
 
@@ -2322,6 +2322,66 @@ body {
 
     .configurator-card button {
         touch-action: manipulation;
+    }
+
+}
+
+/* ========================================
+   VYRA — MOBILE CONFIGURATOR REFINEMENT
+======================================== */
+
+@media screen and (max-width: 767px) {
+
+    .configurator-panel {
+        padding: 0 10px 12px;
+    }
+
+    .configurator-card {
+        width: 100%;
+        max-width: 100%;
+
+        height: 35svh;
+        max-height: 35svh;
+
+        padding: 20px 18px 28px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+
+        border-radius: 18px;
+
+        background: rgba(9, 16, 29, 0.97);
+    }
+
+    .configurator-card h2 {
+        font-size: 28px;
+        line-height: 1.05;
+    }
+
+    .config-description {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    .config-group {
+        padding: 16px 0;
+    }
+
+    .config-swatches {
+        gap: 18px;
+    }
+
+    .config-swatch {
+        width: 42px;
+        height: 42px;
+    }
+
+    .config-option,
+    .config-switch {
+        min-height: 44px;
     }
 
 }

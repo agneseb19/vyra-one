@@ -273,6 +273,90 @@ const car = new THREE.Group();
 
 scene.add(car);
 
+/* ========================================
+   MOBILE — ROTAZIONE CON DUE DITA
+======================================== */
+
+let mobileRotationActive = false;
+let previousTouchX = 0;
+
+const mobileTouchEnabled = window.matchMedia(
+    "(max-width: 767px) and (pointer: coarse)"
+).matches;
+
+if (mobileTouchEnabled) {
+
+    const canvas3D = renderer.domElement;
+
+    canvas3D.addEventListener("touchstart", function(event) {
+
+        if (event.touches.length !== 2) return;
+
+        mobileRotationActive = true;
+
+        previousTouchX =
+            (event.touches[0].clientX +
+             event.touches[1].clientX) / 2;
+
+    }, { passive: true });
+
+
+    canvas3D.addEventListener("touchmove", function(event) {
+
+        if (
+            event.touches.length !== 2 ||
+            !mobileRotationActive ||
+            revealActive ||
+            interiorModeActive
+        ) {
+            return;
+        }
+
+        const configurator =
+            document.getElementById("configurator");
+
+        const rect = configurator?.getBoundingClientRect();
+
+        const inConfigurator = rect &&
+            rect.top < window.innerHeight * 0.8 &&
+            rect.bottom > window.innerHeight * 0.2;
+
+        const atBeginning =
+            window.scrollY < window.innerHeight * 0.7;
+
+        if (!atBeginning && !inConfigurator) return;
+
+        event.preventDefault();
+
+        const currentX =
+            (event.touches[0].clientX +
+             event.touches[1].clientX) / 2;
+
+        const deltaX = currentX - previousTouchX;
+
+        car.rotation.y += deltaX * 0.008;
+
+        previousTouchX = currentX;
+
+    }, { passive: false });
+
+
+    function stopMobileRotation() {
+        mobileRotationActive = false;
+    }
+
+    canvas3D.addEventListener(
+        "touchend",
+        stopMobileRotation
+    );
+
+    canvas3D.addEventListener(
+        "touchcancel",
+        stopMobileRotation
+    );
+
+}
+
 
 // ========================================
 // 8. CONTROLLI MOUSE
