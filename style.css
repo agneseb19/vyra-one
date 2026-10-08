@@ -2591,11 +2591,6 @@ body {
         touch-action: manipulation;
     }
 
-    /* INQUADRATURA PIÙ ALTA NEL CONFIGURATORE */
-
-    body.vyra-mobile-configuring #scene canvas {
-        transform: translateY(-13svh);
-    }
 
 }
 
@@ -2725,6 +2720,214 @@ body {
 
     .vyra-reveal-title {
         font-size: clamp(21px, 6vw, 28px);
+    }
+
+}
+
+/* ==========================================
+   VYRA — SFONDO UNIFORME MOBILE
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+    /* CONFIGURATORE */
+
+    body.vyra-mobile-configuring .hero,
+    body.vyra-mobile-configuring #scene {
+        background: #000000;
+    }
+
+    body.vyra-mobile-configuring #scene canvas {
+        transform: none;
+    }
+
+    /* REVEAL */
+
+    .vyra-reveal,
+    .vyra-reveal-stage {
+        background: #000000;
+    }
+
+    .vyra-reveal-stage canvas {
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        transform: none !important;
+    }
+
+}
+
+/* ==========================================
+   VYRA — CONFIGURATORE MOBILE MIGLIORATO
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+    .configurator-panel {
+        height: 100svh;
+
+        padding: 0 12px 8px;
+
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .configurator-card {
+        width: 100%;
+        max-width: none;
+
+        height: 60svh;
+        max-height: 60svh;
+
+        padding: 22px 20px 32px;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
+
+        border-radius: 22px;
+
+        background: #0b1422;
+    }
+
+    /* INTESTAZIONE COMPATTA */
+
+    .config-eyebrow {
+        margin-bottom: 10px;
+
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .configurator-card h2 {
+        font-size: 26px;
+        line-height: 1.05;
+        letter-spacing: -1px;
+    }
+
+    .config-description {
+        margin-top: 10px;
+        margin-bottom: 15px;
+
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    /* COMANDI */
+
+    .config-group {
+        padding: 15px 0;
+    }
+
+    .config-label {
+        margin-bottom: 12px;
+    }
+
+    .config-swatches {
+        padding: 8px 4px 12px;
+        gap: 14px;
+    }
+
+    .config-swatch {
+        width: 40px;
+        height: 40px;
+    }
+
+    .config-options {
+        gap: 8px;
+    }
+
+    .config-option,
+    .config-switch {
+        min-height: 44px;
+    }
+
+}
+
+/* ==========================================
+   VYRA — REVEAL MOBILE REFINEMENT
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+    /* CONTENITORE TITOLI */
+
+    .vyra-reveal-content {
+        position: absolute;
+
+        top: auto;
+        bottom: 26svh;
+
+        left: 6%;
+        right: 6%;
+
+        width: 88%;
+        height: 150px;
+
+        z-index: 5;
+    }
+
+    /* ETICHETTA */
+
+    .vyra-reveal-eyebrow {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        margin: 0;
+
+        font-size: 9px;
+        letter-spacing: 1.3px;
+    }
+
+    /* FRASI ANIMATE */
+
+    .vyra-reveal-title {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(23px, 6vw, 32px);
+
+        line-height: 1.15;
+        letter-spacing: -1px;
+    }
+
+    /* RIEPILOGO */
+
+    .vyra-reveal-bottom {
+        position: absolute;
+
+        left: 6%;
+        right: 6%;
+
+        bottom: max(
+            16px,
+            env(safe-area-inset-bottom)
+        );
+
+        width: 88%;
+
+        gap: 10px;
+    }
+
+    .vyra-reveal-bottom small {
+        margin-bottom: 6px;
+    }
+
+    .vyra-reveal-return {
+        padding: 10px 14px;
     }
 
 }

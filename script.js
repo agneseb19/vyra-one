@@ -4703,7 +4703,7 @@ function setupVYRAReveal() {
 
         camera.lookAt(
     0,
-    isMobile ? -0.7 : 0.95,
+    isMobile ? -1.5 : 0.95,
     0
 );
 
