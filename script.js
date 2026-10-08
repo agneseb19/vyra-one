@@ -1086,9 +1086,18 @@ function setupCinematicDetails(model) {
 
             /* INQUADRATURA MOBILE CONFIGURATORE */
 
+/* ========================================
+   MOBILE — CONFIGURATORE
+======================================== */
+
 if (isTouchMobile && !revealActive) {
 
-    const desiredFov = atConfigurator ? 76 : 68;
+    document.body.classList.toggle(
+        "vyra-mobile-configuring",
+        atConfigurator
+    );
+
+    const desiredFov = 68;
 
     if (Math.abs(camera.fov - desiredFov) > 0.1) {
 
