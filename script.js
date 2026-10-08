@@ -1084,6 +1084,21 @@ function setupCinematicDetails(model) {
 
             }
 
+            /* INQUADRATURA MOBILE CONFIGURATORE */
+
+if (isTouchMobile && !revealActive) {
+
+    const desiredFov = atConfigurator ? 76 : 68;
+
+    if (Math.abs(camera.fov - desiredFov) > 0.1) {
+
+        camera.fov = desiredFov;
+        camera.updateProjectionMatrix();
+
+    }
+
+}
+
 
             // Controlli automobile
 
