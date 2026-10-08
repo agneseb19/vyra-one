@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VYRA ONE | Beyond Motion</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- ========================================
+     VYRA — CINEMATIC REVEAL
+======================================== -->
+
+<div
+    id="vyra-reveal"
+    class="vyra-reveal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Your VYRA ONE cinematic reveal"
+    hidden
+>
+
+    <!-- Qui verrà mostrato il vero modello 3D -->
+
+    <div
+        id="vyra-reveal-stage"
+        class="vyra-reveal-stage"
+    ></div>
+
+
+    <!-- Pulsante chiusura -->
+
+    <button
+        class="vyra-reveal-close"
+        type="button"
+        data-reveal-close
+    >
+        CLOSE ×
+    </button>
+
+
+    <!-- Titoli della presentazione -->
+
+    <div class="vyra-reveal-content">
+
+        <p class="vyra-reveal-eyebrow">
+            VYRA ONE / PERSONAL EXPERIENCE
+        </p>
+
+        <h2 class="vyra-reveal-title">
+            BUILT<br>
+            <span>AROUND YOU.</span>
+        </h2>
+
+        <h2 class="vyra-reveal-title">
+            ONE DESIGN.<br>
+            <span>INFINITE POSSIBILITIES.</span>
+        </h2>
+
+        <h2 class="vyra-reveal-title">
+            YOUR<br>
+            <span>VYRA ONE.</span>
+        </h2>
+
+    </div>
+
+
+    <!-- Configurazione selezionata -->
+
+    <div class="vyra-reveal-bottom">
+
+        <div>
+
+            <small>PERSONALIZED BY YOU</small>
+
+            <p id="vyra-reveal-specs">
+                YOUR CONFIGURATION
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            class="vyra-reveal-return"
+            data-reveal-close
+        >
+            BACK TO CONFIGURATOR ↗
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- ========================================
+     SCROLL PROGRESS INDICATOR
+======================================== -->
+
+<div class="scroll-progress" aria-hidden="true">
+
+    <div class="scroll-progress-fill"></div>
+
+</div>
+
+    <header class="navbar">
+        <div class="logo">VYRA<span>®</span></div>
+
+        <nav>
+            <a href="#experience">EXPERIENCE</a>
+            <a href="#configurator">CONFIGURATOR</a>
+        </nav>
+
+        <a href="#experience" class="nav-button">EXPLORE THE ONE ↗</a>
+    </header>
+
+    <main class="hero" id="experience">
+
+        <div class="hero-content">
+
+            <p class="eyebrow">THE FUTURE IS ELECTRIC</p>
+
+            <h1>VYRA<br><span>ONE.</span></h1>
+
+            <p class="description">
+                Not just a car.<br>
+                A new dimension of motion.
+            </p>
+
+            <div class="color-picker">
+                <p>EXPLORE THE COLORS</p>
+
+                <div class="colors">
+                    <button class="color active"
+                        data-color="#cdd8e4"
+                        style="background: #cdd8e4"
+                        aria-label="Argento">
+                    </button>
+
+                    <button class="color"
+                        data-color="#3366aa"
+                        style="background: #3366aa"
+                        aria-label="Blu">
+                    </button>
+
+                    <button class="color"
+                        data-color="#343943"
+                        style="background: #343943"
+                        aria-label="Grafite">
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+       <div id="scene">
+
+        <!-- CINEMATIC SHOWROOM LIGHT -->
+
+<div class="showroom-halo" aria-hidden="true"></div>
+
+    <!-- CONTROLLO PORTIERE -->
+
+    <button
+        id="doors-toggle"
+        class="doors-toggle"
+        type="button"
+        aria-pressed="false"
+        disabled
+    >
+        OPEN DOORS ↗
+    </button>
+
+
+    <!-- DETTAGLIO FARI -->
+
+    <div class="detail-badge" id="headlight-badge">
+
+        <span class="detail-line"></span>
+
+        <div>
+            <small>01 / PRECISION LIGHTING</small>
+            <p>LIGHT SIGNATURE</p>
+        </div>
+
+    </div>
+
+
+    <!-- DETTAGLIO RUOTE -->
+
+    <div class="detail-badge" id="wheel-badge">
+
+        <span class="detail-line"></span>
+
+        <div>
+            <small>02 / PERFORMANCE DESIGN</small>
+            <p>ENGINEERED PRECISION</p>
+        </div>
+
+    </div>
+
+</div>
+
+        <div class="hero-bottom">
+            <span>01 / THE BEGINNING</span>
+            <span>DRAG TO EXPLORE ↔</span>
+            <span>100% ELECTRIC CONCEPT</span>
+        </div>
+
+
+        <!-- ========================================
+     SEZIONE 02 — DESIGN
+======================================== -->
+
+<section class="story-panel panel-design">
+
+    <div class="story-copy">
+
+        <p class="story-number">02 / THE DESIGN</p>
+
+        <h2>
+            BEYOND<br>
+            <span>DESIGN.</span>
+        </h2>
+
+        <p class="story-description">
+            Every curve has a purpose.
+            Every surface tells a story.
+            A new vision of automotive design.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     SEZIONE 03 — DETAILS
+======================================== -->
+
+<section class="story-panel panel-details">
+
+    <div class="story-copy">
+
+        <p class="story-number">03 / THE DETAILS</p>
+
+        <h2>
+            EVERY DETAIL<br>
+            <span>MATTERS.</span>
+        </h2>
+
+        <p class="story-description">
+            Precision meets innovation.
+            Engineered with obsession.
+            Designed without compromise.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     SEZIONE 04 — INNOVATION
+======================================== -->
+
+<section class="story-panel panel-future">
+
+    <div class="story-copy">
+
+        <p class="story-number">04 / THE FUTURE</p>
+
+        <h2>
+            ENGINEERED<br>
+            <span>TO EVOLVE.</span>
+        </h2>
+
+        <p class="story-description">
+            Beyond performance.
+            Beyond expectations.
+            The future of motion starts here.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================
+     SEZIONE 05 — EXPLODED VIEW
+======================================== -->
+
+<section class="story-panel panel-exploded">
+
+    <div class="story-copy">
+
+        <p class="story-number">
+            05 / THE ENGINEERING
+        </p>
+
+        <h2>
+            THE ART OF<br>
+            <span>ENGINEERING.</span>
+        </h2>
+
+        <p class="story-description">
+            Beyond what meets the eye.
+            Every component engineered
+            to redefine performance.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     SEZIONE 06 — REASSEMBLY
+======================================== -->
+
+<section class="story-panel panel-reassembly">
+
+    <div class="story-copy">
+
+        <p class="story-number">
+            06 / THE MASTERPIECE
+        </p>
+
+        <h2>
+            PERFECTLY<br>
+            <span>REASSEMBLED.</span>
+        </h2>
+
+        <p class="story-description">
+            Individual elements.
+            One extraordinary vision.
+            Precision in every connection.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================
+     07 — VYRA 3D CONFIGURATOR
+======================================== -->
+
+<section class="configurator-panel" id="configurator">
+
+    <div class="configurator-card">
+
+        <p class="config-eyebrow">07 / MAKE IT YOURS</p>
+
+        <h2>
+            YOUR CAR.<br>
+            <span>YOUR RULES.</span>
+        </h2>
+
+        <p class="config-description">
+            Designed to be different.
+            Configured to be yours.
+        </p>
+
+
+        <!-- CARROZZERIA -->
+
+        <div class="config-group">
+
+            <p class="config-label">EXTERIOR COLOR</p>
+
+            <div class="config-swatches">
+
+                <button
+                    class="config-swatch active"
+                    data-config-color="#cdd8e4"
+                    style="--swatch: #cdd8e4"
+                    aria-label="Argento"
+                    aria-pressed="true">
+                </button>
+
+                <button
+                    class="config-swatch"
+                    data-config-color="#3366aa"
+                    style="--swatch: #3366aa"
+                    aria-label="Blu"
+                    aria-pressed="false">
+                </button>
+
+                <button
+                    class="config-swatch"
+                    data-config-color="#343943"
+                    style="--swatch: #343943"
+                    aria-label="Grafite"
+                    aria-pressed="false">
+                </button>
+
+                <button
+                    class="config-swatch"
+                    data-config-color="#9f2638"
+                    style="--swatch: #9f2638"
+                    aria-label="Rosso"
+                    aria-pressed="false">
+                </button>
+
+                <button
+                    class="config-swatch"
+                    data-config-color="#e2c6a0"
+                    style="--swatch: #e2c6a0"
+                    aria-label="Champagne"
+                    aria-pressed="false">
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FINITURA CARROZZERIA -->
+
+        <div class="config-group">
+
+            <p class="config-label">PAINT FINISH</p>
+
+            <div class="config-options">
+
+                <button class="config-option active"
+                    data-finish="gloss"
+                    aria-pressed="true">
+                    GLOSS
+                </button>
+
+                <button class="config-option"
+                    data-finish="metallic"
+                    aria-pressed="false">
+                    METALLIC
+                </button>
+
+                <button class="config-option"
+                    data-finish="matte"
+                    aria-pressed="false">
+                    MATTE
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERCHI -->
+
+        <div class="config-group">
+
+            <p class="config-label">WHEEL FINISH</p>
+
+            <div class="config-options">
+
+                <button class="config-option active"
+                    data-wheel-finish="dark"
+                    aria-pressed="true">
+                    DARK
+                </button>
+
+                <button class="config-option"
+                    data-wheel-finish="silver"
+                    aria-pressed="false">
+                    SILVER
+                </button>
+
+                <button class="config-option"
+                    data-wheel-finish="bronze"
+                    aria-pressed="false">
+                    BRONZE
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FARI -->
+
+        <div class="config-group config-inline">
+
+            <p class="config-label">LED HEADLIGHTS</p>
+
+            <button
+                id="config-lights"
+                class="config-switch"
+                type="button"
+                aria-pressed="true"
+                disabled>
+                LIGHTS ON
+            </button>
+
+        </div>
+
+
+        <!-- PORTIERE -->
+
+        <div class="config-group config-inline">
+
+            <p class="config-label">DOOR SYSTEM</p>
+
+            <button
+                id="config-doors"
+                class="config-switch"
+                type="button"
+                aria-pressed="false"
+                disabled>
+                OPEN DOORS ↗
+            </button>
+
+        </div>
+
+        <!-- ========================================
+     INTERIOR EXPERIENCE
+======================================== -->
+
+<div class="config-group config-inline">
+
+    <p class="config-label">CAMERA VIEW</p>
+
+    <button
+        id="config-view"
+        class="config-switch"
+        type="button"
+        aria-pressed="false"
+        disabled>
+        EXPLORE CABIN ↗
+    </button>
+
+</div>
+
+<!-- ========================================
+     COCKPIT EXPLORER
+======================================== -->
+
+<div
+    class="config-group"
+    id="cockpit-shortcuts"
+    hidden
+>
+
+    <p class="config-label">
+        EXPLORE THE INTERIOR
+    </p>
+
+    <div class="config-options">
+
+        <button
+            type="button"
+            class="config-option active"
+            data-cockpit-view="driver"
+        >
+            DRIVER VIEW
+        </button>
+
+        <button
+            type="button"
+            class="config-option"
+            data-cockpit-view="dashboard"
+        >
+            DASHBOARD
+        </button>
+
+        <button
+            type="button"
+            class="config-option"
+            data-cockpit-view="passenger"
+        >
+            PASSENGER SIDE
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ========================================
+     INTERIOR COLORS
+======================================== -->
+
+<div class="config-group">
+
+    <p class="config-label">INTERIOR COLOR</p>
+
+    <div class="config-swatches">
+
+        <button
+            class="config-swatch active"
+            data-interior-color="#9c3440"
+            style="--swatch: #9c3440"
+            aria-label="Carmine"
+            aria-pressed="true">
+        </button>
+
+        <button
+            class="config-swatch"
+            data-interior-color="#d5c5ae"
+            style="--swatch: #d5c5ae"
+            aria-label="Sand"
+            aria-pressed="false">
+        </button>
+
+        <button
+            class="config-swatch"
+            data-interior-color="#252d38"
+            style="--swatch: #252d38"
+            aria-label="Graphite"
+            aria-pressed="false">
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ========================================
+     SAVE YOUR CONFIGURATION
+======================================== -->
+
+<div class="config-group config-save-panel">
+
+    <p class="config-label">
+        YOUR VYRA CONFIGURATION
+    </p>
+
+    <div class="config-save-actions">
+
+        <button
+            id="save-configuration"
+            class="config-option config-save-button"
+            type="button"
+            disabled
+        >
+            SAVE CONFIGURATION ↗
+        </button>
+
+        <button
+            id="load-configuration"
+            class="config-option"
+            type="button"
+            disabled
+        >
+            LOAD SAVED
+        </button>
+
+        <button
+    id="share-configuration"
+    class="config-option config-share-button"
+    type="button"
+    disabled
+>
+    SHARE CONFIGURATION ↗
+</button>
+
+    </div>
+
+    <p
+        id="configuration-status"
+        class="config-save-status"
+        role="status"
+        aria-live="polite"
+    >
+        Checking saved configuration...
+    </p>
+
+    <!-- ========================================
+     FASE 14 — CONFIGURATION SUMMARY
+======================================== -->
+
+<div class="config-summary" id="config-summary">
+
+    <p class="config-label">
+        YOUR SPECIFICATION
+    </p>
+
+    <div class="config-summary-row">
+        <span>EXTERIOR COLOR</span>
+        <strong id="summary-exterior">—</strong>
+    </div>
+
+    <div class="config-summary-row">
+        <span>PAINT FINISH</span>
+        <strong id="summary-paint">—</strong>
+    </div>
+
+    <div class="config-summary-row">
+        <span>WHEEL FINISH</span>
+        <strong id="summary-wheels">—</strong>
+    </div>
+
+    <div class="config-summary-row">
+        <span>INTERIOR COLOR</span>
+        <strong id="summary-interior">—</strong>
+    </div>
+
+    <div class="config-summary-row">
+        <span>LED HEADLIGHTS</span>
+        <strong id="summary-lights">—</strong>
+    </div>
+
+    <button
+        id="download-spec-sheet"
+        class="config-option config-download-button"
+        type="button"
+        disabled
+    >
+        DOWNLOAD SPEC SHEET ↓
+    </button>
+
+    <!-- FASE 18 — CINEMATIC REVEAL -->
+
+<button
+    id="vyra-reveal-start"
+    class="vyra-reveal-trigger"
+    type="button"
+    disabled
+>
+    <span>YOUR FINAL CREATION</span>
+    <strong>REVEAL MY VYRA ↗</strong>
+</button>
+
+    <p class="config-summary-note">
+        Your VYRA ONE. Your configuration.
+    </p>
+
+</div>
+
+</div>
+
+    </div>
+
+</section>
+
+    </main>
+
+    <!-- ========================================
+     FASE 19 — THE ONE
+======================================== -->
+
+<section class="vyra-editorial" id="the-one">
+
+    <div class="vyra-editorial-container">
+
+        <!-- INTESTAZIONE -->
+
+        <div class="vyra-editorial-top">
+
+            <span>01 / INTRODUCING THE ONE</span>
+
+            <span>VYRA AUTOMOTIVE CONCEPT</span>
+
+        </div>
+
+
+        <!-- PRESENTAZIONE -->
+
+        <div class="vyra-editorial-intro">
+
+            <div class="vyra-editorial-heading">
+
+                <p class="vyra-editorial-eyebrow">
+                    A DIFFERENT KIND OF SUPERCAR
+                </p>
+
+                <h2>
+                    NOT MADE<br>
+                    TO FOLLOW.<br>
+                    <span>MADE TO LEAD.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="vyra-editorial-description">
+
+                <span class="vyra-editorial-line"></span>
+
+                <p>
+                    VYRA ONE is an all-electric supercar
+                    concept created around a singular vision:
+                    to redefine the relationship between
+                    performance, design and human emotion.
+                </p>
+
+                <p>
+                    Its sculptural silhouette, purposeful
+                    surfaces and driver-focused interior
+                    express a new interpretation of
+                    contemporary automotive excellence.
+                </p>
+
+                <a href="#configurator">
+                    DISCOVER YOUR VYRA
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ====================================
+         GRANDE IMMAGINE DELLA VETTURA
+    ==================================== -->
+
+    <div class="vyra-editorial-visual">
+
+        <div class="vyra-editorial-image"></div>
+
+        <span class="vyra-editorial-watermark">
+            VYRA
+        </span>
+
+        <div class="vyra-editorial-image-info">
+
+            <span>THE ONE / 001</span>
+
+            <span>SCULPTED FOR THE EXTRAORDINARY</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ====================================
+         TRE PILASTRI DEL MODELLO
+    ==================================== -->
+
+    <div class="vyra-editorial-container">
+
+        <div class="vyra-editorial-features">
+
+            <!-- DESIGN -->
+
+            <article class="vyra-editorial-feature">
+
+                <span class="vyra-feature-number">
+                    01 / DESIGN
+                </span>
+
+                <h3>
+                    FORM FOLLOWS<br>
+                    EMOTION.
+                </h3>
+
+                <p>
+                    A distinctive design language defined
+                    by flowing surfaces, assertive proportions
+                    and an unmistakable visual identity.
+                </p>
+
+            </article>
+
+
+            <!-- PERFORMANCE -->
+
+            <article class="vyra-editorial-feature">
+
+                <span class="vyra-feature-number">
+                    02 / ELECTRIC PERFORMANCE
+                </span>
+
+                <h3>
+                    POWERED BY<br>
+                    POSSIBILITY.
+                </h3>
+
+                <p>
+                    Conceived around an all-electric
+                    architecture, VYRA ONE explores
+                    a new vision of dynamic performance.
+                </p>
+
+            </article>
+
+
+            <!-- COCKPIT -->
+
+            <article class="vyra-editorial-feature">
+
+                <span class="vyra-feature-number">
+                    03 / THE COCKPIT
+                </span>
+
+                <h3>
+                    DESIGNED<br>
+                    AROUND YOU.
+                </h3>
+
+                <p>
+                    An immersive driver environment
+                    that places ergonomics, interaction
+                    and personal expression at its core.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ========================================
+     FINAL SECTION
+======================================== -->
+
+<section class="final-section">
+
+    <p class="final-label">THE VYRA VISION</p>
+
+    <h2>
+        THE FUTURE<br>
+        IS <span>OURS.</span>
+    </h2>
+
+    <p>
+        A new era of electric performance.
+        Designed for those who move beyond.
+    </p>
+
+    <a href="#configurator" class="final-button">
+        EXPLORE VYRA ONE ↗
+    </a>
+
+</section>
+
+   <!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<!-- SCROLLTRIGGER -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- GENERAZIONE PDF -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- NOSTRO JAVASCRIPT -->
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
