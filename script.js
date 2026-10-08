@@ -4674,10 +4674,10 @@ function setupVYRAReveal() {
     // ====================================
 
     const orbit = {
-        angle: -0.95,
-        radius: 8.8,
-        height: 2.4
-    };
+    angle: -0.95,
+    radius: isMobile ? 12 : 8.8,
+    height: isMobile ? 3 : 2.4
+};
 
 
     function updateRevealCamera() {
@@ -4783,7 +4783,7 @@ function setupVYRAReveal() {
         camera.aspect =
             window.innerWidth / window.innerHeight;
 
-        camera.fov = 40;
+        camera.fov = isMobile ? 72 : 40;
         camera.near = 0.1;
 
         camera.updateProjectionMatrix();
@@ -4796,8 +4796,8 @@ function setupVYRAReveal() {
         studioSpotlight.intensity = 0;
 
         orbit.angle = -0.95;
-        orbit.radius = 8.8;
-        orbit.height = 2.4;
+orbit.radius = isMobile ? 12 : 8.8;
+orbit.height = isMobile ? 3 : 2.4;
 
         updateRevealCamera();
 
@@ -4887,7 +4887,7 @@ function setupVYRAReveal() {
 
             {
                 angle: -0.15,
-                radius: 7.9,
+                radius: isMobile ? 11.5 : 7.9,
                 height: 2.6,
 
                 duration: 3,
@@ -4946,7 +4946,7 @@ function setupVYRAReveal() {
 
             {
                 angle: 1.05,
-                radius: 7,
+                radius: isMobile ? 11 : 7,
                 height: 2.8,
 
                 duration: 3,
@@ -5005,7 +5005,7 @@ function setupVYRAReveal() {
 
             {
                 angle: 0.55,
-                radius: 8,
+                radius: isMobile ? 12 : 8,
                 height: 2.3,
 
                 duration: 2.5,
