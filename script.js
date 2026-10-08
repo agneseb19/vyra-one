@@ -4996,18 +4996,18 @@ orbit.height = isMobile ? 3 : 2.4;
 
         revealTimeline.to(
 
-            titles[1],
+    titles[1],
 
-            {
-                opacity: 0,
-                y: -30,
+    {
+        opacity: 0,
+        y: -30,
 
-                duration: 0.7
-            },
+        duration: 0.5
+    },
 
-            5.7
+    5.7
 
-        );
+);
 
 
         // INQUADRATURA FINALE
@@ -5048,7 +5048,7 @@ orbit.height = isMobile ? 3 : 2.4;
                 ease: 'power2.out'
             },
 
-            6.6
+            6.7
 
         );
 
