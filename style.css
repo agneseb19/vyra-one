@@ -2295,3 +2295,33 @@ body {
     }
 
 }
+
+/* ========================================
+   VYRA — FIX TOUCH SMARTPHONE
+======================================== */
+
+@media screen and (max-width: 767px) {
+
+    html,
+    body {
+        touch-action: pan-y;
+        overscroll-behavior-y: auto;
+    }
+
+    #scene,
+    #scene canvas {
+        touch-action: pan-y !important;
+    }
+
+    .configurator-card {
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+    }
+
+    .configurator-card button {
+        touch-action: manipulation;
+    }
+
+}

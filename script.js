@@ -289,8 +289,9 @@ controls.dampingFactor = 0.05;
 
 controls.enablePan = false;
 
+
 /* ========================================
-   CONTROLLI TOUCH MOBILE
+   VYRA — TOUCH MOBILE
 ======================================== */
 
 const isTouchMobile = window.matchMedia(
@@ -299,12 +300,13 @@ const isTouchMobile = window.matchMedia(
 
 if (isTouchMobile) {
 
-    // Un dito: lasciamo scorrere la pagina.
-    // Due dita: rotazione del modello 3D.
+    // Sul telefono la priorità è lo scroll.
+    // Disattiviamo i gesti OrbitControls sul canvas.
 
-    controls.touches.ONE = null;
+    controls.disconnect();
 
-    controls.touches.TWO = THREE.TOUCH.ROTATE;
+    // Il browser può gestire lo scorrimento.
+    renderer.domElement.style.touchAction = "pan-y";
 
 }
 
